@@ -16,23 +16,43 @@
         :collapsed-width="64"
         :collapsed-icon-size="22"
         :options="menuOptions"
-      />
+        :render-label="renderMenuLabel"
+      >
+      </n-menu>
     </n-layout-sider>
     <n-layout>
-      <n-layout-header bordered> 颐和园路 </n-layout-header>
+      <n-layout-header bordered>
+        <NavHeader />
+      </n-layout-header>
       <n-layout-content content-style="padding: 24px;">
-        平山道
+        <RouterView />
       </n-layout-content>
-      <n-layout-footer bordered> 成府路 </n-layout-footer>
+      <n-layout-footer bordered>
+        <div class="footer">copyright @ jj</div>
+      </n-layout-footer>
     </n-layout>
   </n-layout>
 </template>
 
 <script setup lang="ts">
-import { menuOptions } from "@/test/index";
+import { menuOptions } from "@/store/index";
+import NavHeader from "@/components/NavHeader/index.vue";
+import type { MenuOption } from "naive-ui";
 
 const activeKey = ref<string | null>(null);
 const collapsed = ref(true);
+
+function renderMenuLabel(option: MenuOption) {
+  if ("href" in option) {
+    // return h(
+    //   "a",
+    //   { href: option.href, target: "_blank" },
+    //   option.label as string
+    // );
+    return 
+  }
+  return option.label as string;
+}
 </script>
 
 <style lang="scss" scoped>
@@ -45,5 +65,14 @@ const collapsed = ref(true);
 
 .n-layout-footer {
   padding: 24px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  .footer {
+    text-align: center;
+  }
 }
 </style>
+@/store/index

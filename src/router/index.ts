@@ -1,19 +1,27 @@
 import { RouteRecordRaw, createRouter, createWebHistory } from "vue-router";
 
-export const contantRoutes:Array<RouteRecordRaw> = [
+export const contantRoutes: Array<RouteRecordRaw> = [
   {
     path: "/",
     name: "Layout",
-    component: () => import('@/Layout/index.vue'),
-    meta:{
-      title:'首页'
-    }
+    component: () => import("@/Layout/index.vue"),
+    meta: {
+      title: "首页",
+    },
   },
   {
     path: "/login",
     component: () => import("@/view/login/index.vue"),
     meta: {
       title: "登录",
+    },
+  },
+  {
+    path: "/home",
+    name: "home",
+    component: () => import("@/view/home/index.vue"),
+    meta: {
+      title: "首页",
     },
   },
 ];
