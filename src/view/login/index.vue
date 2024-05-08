@@ -16,6 +16,10 @@
         <n-form-item label="密码:" path="password">
           <n-input v-model:value="data.password" placeholder="请输入密码" />
         </n-form-item>
+        <n-form-item label="验证码:" path="code">
+          <n-input v-model:value="data.code" placeholder="请输入密码" />
+        </n-form-item>
+        <img :src="src" alt="" @click="getCode()" />
         <div style="display: flex; justify-content: center">
           <n-button round type="primary" @click="handleLogin()">
             登录
@@ -33,12 +37,13 @@
 </template>
 
 <script setup lang="ts">
-// import router from '@/router';
-// import { useUserStore } from '@/store/modules/user';
+import router from "@/router";
+import { useUserStore } from "@/store/modules/user";
+import { getCaptchaImage } from "@/api/login";
 
-// const userStore = useUserStore();
+const userStore = useUserStore();
 
-const message = useMessage();
+// const message = useMessage();
 const data = ref({
   username: "admin",
   password: "admin123",
@@ -62,17 +67,30 @@ const rules = ref({
 const formRef = ref();
 
 function handleLogin() {
-  // userStore.login(data.value).then((res) => {
-  //   router.replace('/home');
+  userStore.login(data.value).then((res) => {
+    router.replace("/home");
+  });
+  // formRef.value?.validate((err: any) => {
+  //   if (!err) {
+  //     message.success("验证成功！");
+  //   } else {
+  //     message.error("验证失败");
+  //   }
   // });
-  formRef.value?.validate((err: any) => {
-    if (!err) {
-      message.success("验证成功！");
-    } else {
-      message.error("验证失败");
-    }
+}
+
+const base64 = ref("");
+
+const src = ref("");
+
+function getCode() {
+  getCaptchaImage().then((res) => {
+    src.value = `data:image/gif;base64,${res.img}`;
+    data.value.uuid = res.uuid;
+    base64.value = res;
   });
 }
+getCode()
 </script>
 
 <style lang="scss">

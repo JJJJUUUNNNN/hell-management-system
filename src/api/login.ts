@@ -7,7 +7,7 @@ export function getCaptchaImage() {
   });
 }
 
-export function getLogin(data) {
+export function getLogin(data: object) {
   return wjjRequest({
     url: "/login",
     method: "post",

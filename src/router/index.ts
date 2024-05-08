@@ -1,13 +1,13 @@
-import { RouteRecordRaw, createRouter, createWebHistory } from "vue-router";
+import { createRouter, createWebHistory } from "vue-router";
+import type { RouteRecordRaw } from "vue-router";
 
 export const contantRoutes: Array<RouteRecordRaw> = [
   {
     path: "/",
+    redirect: "/home",
     name: "Layout",
     component: () => import("@/Layout/index.vue"),
-    meta: {
-      title: "首页",
-    },
+    children:[]
   },
   {
     path: "/login",
@@ -17,11 +17,10 @@ export const contantRoutes: Array<RouteRecordRaw> = [
     },
   },
   {
-    path: "/home",
-    name: "home",
+    path: "/register",
     component: () => import("@/view/home/index.vue"),
     meta: {
-      title: "首页",
+      title: "注册",
     },
   },
 ];

@@ -28,7 +28,7 @@
         <RouterView />
       </n-layout-content>
       <n-layout-footer bordered>
-        <div class="footer">copyright @ jj</div>
+        <div class="footer">copyright © jj</div>
       </n-layout-footer>
     </n-layout>
   </n-layout>
