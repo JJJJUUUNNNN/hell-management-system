@@ -38,7 +38,7 @@ import { menuOptions } from "@/store/index";
 import NavHeader from "@/components/NavHeader/index.vue";
 
 const activeKey = ref<string | null>(null);
-const collapsed = ref(true);
+const collapsed = ref(false);
 
 </script>
 

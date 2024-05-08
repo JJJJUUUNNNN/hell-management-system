@@ -9,6 +9,8 @@ declare module 'vue' {
   export interface GlobalComponents {
     NavHeader: typeof import('./src/components/NavHeader/index.vue')['default']
     NButton: typeof import('naive-ui')['NButton']
+    NCard: typeof import('naive-ui')['NCard']
+    NFlex: typeof import('naive-ui')['NFlex']
     NForm: typeof import('naive-ui')['NForm']
     NFormItem: typeof import('naive-ui')['NFormItem']
     NInput: typeof import('naive-ui')['NInput']
