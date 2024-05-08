@@ -11,6 +11,7 @@ export const contantRoutes: Array<RouteRecordRaw> = [
   },
   {
     path: "/login",
+    name:'login',
     component: () => import("@/view/login/index.vue"),
     meta: {
       title: "登录",
@@ -18,7 +19,8 @@ export const contantRoutes: Array<RouteRecordRaw> = [
   },
   {
     path: "/register",
-    component: () => import("@/view/home/index.vue"),
+    name:'register',
+    component: () => import("@/view/register/index.vue"),
     meta: {
       title: "注册",
     },

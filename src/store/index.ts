@@ -12,6 +12,7 @@ import {
   LogoYen,
   ConstructOutline,
 } from "@vicons/ionicons5";
+import { RouterLink } from "vue-router";
 
 function renderIcon(icon: Component) {
   return () => h(NIcon, null, { default: () => h(icon) });
@@ -19,11 +20,29 @@ function renderIcon(icon: Component) {
 
 export const menuOptions: MenuOption[] = [
   {
-    label: "首页",
+    label: () =>
+      h(
+        RouterLink,
+        {
+          to: {
+            name: "home",
+          },
+        },
+        () => "首页"
+      ),
     key: "home",
     children: [
       {
-        label: "地府大数据",
+        label: () =>
+          h(
+            RouterLink,
+            {
+              to: {
+                name: "homeHellData",
+              },
+            },
+            () => "地府大数据"
+          ),
         key: "home_hell_data",
       },
     ],
@@ -34,11 +53,29 @@ export const menuOptions: MenuOption[] = [
     key: "life_death_book",
     children: [
       {
-        label: "用户管理",
+        label: () =>
+          h(
+            RouterLink,
+            {
+              to: {
+                name: "lifeDeathBookUserManage",
+              },
+            },
+            () => "用户管理"
+          ),
         key: "life_death_book_user_manage",
       },
       {
-        label: "数据同步",
+        label: () =>
+          h(
+            RouterLink,
+            {
+              to: {
+                name: "lifeDeathBookDataManage",
+              },
+            },
+            () => "数据同步"
+          ),
         key: "life_death_book_data_manage",
       },
     ],
@@ -49,11 +86,29 @@ export const menuOptions: MenuOption[] = [
     key: "seductive_manage",
     children: [
       {
-        label: "勾魂使者",
+        label: () =>
+          h(
+            RouterLink,
+            {
+              to: {
+                name: "seductiveManageManager",
+              },
+            },
+            () => "勾魂使者"
+          ),
         key: "seductive_manage_manager",
       },
       {
-        label: "勾魂数据",
+        label: () =>
+          h(
+            RouterLink,
+            {
+              to: {
+                name: "seductiveManageData",
+              },
+            },
+            () => "勾魂数据"
+          ),
         key: "seductive_manage_data",
       },
     ],
@@ -64,15 +119,42 @@ export const menuOptions: MenuOption[] = [
     key: "hell_trial",
     children: [
       {
-        label: "十殿",
+        label: () =>
+          h(
+            RouterLink,
+            {
+              to: {
+                name: "hellTrialTen",
+              },
+            },
+            () => "十殿"
+          ),
         key: "hell_trial_ten",
       },
       {
-        label: "审判记录",
+        label: () =>
+          h(
+            RouterLink,
+            {
+              to: {
+                name: "hellTrialHistory",
+              },
+            },
+            () => "审判记录"
+          ),
         key: "hell_trial_history",
       },
       {
-        label: "数据同步",
+        label: () =>
+          h(
+            RouterLink,
+            {
+              to: {
+                name: "hellTrialData",
+              },
+            },
+            () => "数据同步"
+          ),
         key: "hell_trial_data",
       },
     ],
@@ -83,15 +165,42 @@ export const menuOptions: MenuOption[] = [
     key: "eighteen_hell",
     children: [
       {
-        label: "设备管理",
+        label: () =>
+          h(
+            RouterLink,
+            {
+              to: {
+                name: "eighteenHellDeviceManage",
+              },
+            },
+            () => "设备管理"
+          ),
         key: "eighteen_hell_device_manage",
       },
       {
-        label: "作业流程",
+        label: () =>
+          h(
+            RouterLink,
+            {
+              to: {
+                name: "eighteenHellWorkProcess",
+              },
+            },
+            () => "作业流程"
+          ),
         key: "eighteen_hell_work_process",
       },
       {
-        label: "地狱数据",
+        label: () =>
+          h(
+            RouterLink,
+            {
+              to: {
+                name: "eighteenHellData",
+              },
+            },
+            () => "地狱数据"
+          ),
         key: "eighteen_hell_data",
       },
     ],
@@ -102,11 +211,29 @@ export const menuOptions: MenuOption[] = [
     key: "reincarnation",
     children: [
       {
-        label: "轮回盘",
+        label: () =>
+          h(
+            RouterLink,
+            {
+              to: {
+                name: "reincarnationDisk",
+              },
+            },
+            () => "轮回盘"
+          ),
         key: "reincarnation_disk",
       },
       {
-        label: "轮回记录",
+        label: () =>
+          h(
+            RouterLink,
+            {
+              to: {
+                name: "reincarnationHistory",
+              },
+            },
+            () => "轮回记录"
+          ),
         key: "reincarnation_history",
       },
     ],
@@ -117,18 +244,45 @@ export const menuOptions: MenuOption[] = [
     key: "money",
     children: [
       {
-        label: "汇款",
+        label: () =>
+          h(
+            RouterLink,
+            {
+              to: {
+                name: "moneyTransfer",
+              },
+            },
+            () => "汇款"
+          ),
         key: "money_transfer",
       },
       {
-        label: "汇款管理",
+        label: () =>
+          h(
+            RouterLink,
+            {
+              to: {
+                name: "moneyManage",
+              },
+            },
+            () => "汇款管理"
+          ),
         key: "money_manage",
       },
     ],
     icon: renderIcon(LogoYen),
   },
   {
-    label: "日志管理",
+    label: () =>
+      h(
+        RouterLink,
+        {
+          to: {
+            name: "logManage",
+          },
+        },
+        () => "日志管理"
+      ),
     key: "log_manage",
     icon: renderIcon(BowlingBallOutline),
   },
@@ -137,11 +291,29 @@ export const menuOptions: MenuOption[] = [
     key: "role_permission",
     children: [
       {
-        label: "角色管理",
+        label: () =>
+          h(
+            RouterLink,
+            {
+              to: {
+                name: "roleManage",
+              },
+            },
+            () => "角色管理"
+          ),
         key: "role_manage",
       },
       {
-        label: "权限设置",
+        label: () =>
+          h(
+            RouterLink,
+            {
+              to: {
+                name: "permissionSetting",
+              },
+            },
+            () => "权限设置"
+          ),
         key: "permission_setting",
       },
     ],
@@ -152,11 +324,29 @@ export const menuOptions: MenuOption[] = [
     key: "system_manage",
     children: [
       {
-        label: "管理员",
+        label: () =>
+          h(
+            RouterLink,
+            {
+              to: {
+                name: "systemManager",
+              },
+            },
+            () => "管理员"
+          ),
         key: "system_manager",
       },
       {
-        label: "系统设置",
+        label: () =>
+          h(
+            RouterLink,
+            {
+              to: {
+                name: "systemSetting",
+              },
+            },
+            () => "系统设置"
+          ),
         key: "system_setting",
       },
     ],

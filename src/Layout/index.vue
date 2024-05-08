@@ -16,7 +16,6 @@
         :collapsed-width="64"
         :collapsed-icon-size="22"
         :options="menuOptions"
-        :render-label="renderMenuLabel"
       >
       </n-menu>
     </n-layout-sider>
@@ -37,22 +36,10 @@
 <script setup lang="ts">
 import { menuOptions } from "@/store/index";
 import NavHeader from "@/components/NavHeader/index.vue";
-import type { MenuOption } from "naive-ui";
 
 const activeKey = ref<string | null>(null);
 const collapsed = ref(true);
 
-function renderMenuLabel(option: MenuOption) {
-  if ("href" in option) {
-    // return h(
-    //   "a",
-    //   { href: option.href, target: "_blank" },
-    //   option.label as string
-    // );
-    return 
-  }
-  return option.label as string;
-}
 </script>
 
 <style lang="scss" scoped>
