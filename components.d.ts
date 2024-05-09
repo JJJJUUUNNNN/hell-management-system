@@ -7,9 +7,13 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    NAvatar: typeof import('naive-ui')['NAvatar']
     NavHeader: typeof import('./src/components/NavHeader/index.vue')['default']
+    NBreadcrumb: typeof import('naive-ui')['NBreadcrumb']
+    NBreadcrumbItem: typeof import('naive-ui')['NBreadcrumbItem']
     NButton: typeof import('naive-ui')['NButton']
     NCard: typeof import('naive-ui')['NCard']
+    NDropdown: typeof import('naive-ui')['NDropdown']
     NFlex: typeof import('naive-ui')['NFlex']
     NForm: typeof import('naive-ui')['NForm']
     NFormItem: typeof import('naive-ui')['NFormItem']
