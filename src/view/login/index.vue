@@ -18,8 +18,8 @@
         </n-form-item>
         <n-form-item label="验证码:" path="code">
           <n-input v-model:value="data.code" placeholder="请输入密码" />
+          <img class="code" :src="src" alt="" @click="getCode()" />
         </n-form-item>
-        <img :src="src" alt="" @click="getCode()" />
         <div style="display: flex; justify-content: center">
           <n-button round type="primary" @click="handleLogin()">
             登录
@@ -67,7 +67,7 @@ const rules = ref({
 const formRef = ref();
 
 function handleLogin() {
-  userStore.login(data.value).then((res) => {
+  userStore.login(data.value).then(() => {
     router.replace("/home");
   });
   // formRef.value?.validate((err: any) => {
@@ -84,13 +84,13 @@ const base64 = ref("");
 const src = ref("");
 
 function getCode() {
-  getCaptchaImage().then((res) => {
+  getCaptchaImage().then((res: any) => {
     src.value = `data:image/gif;base64,${res.img}`;
     data.value.uuid = res.uuid;
     base64.value = res;
   });
 }
-getCode()
+getCode();
 </script>
 
 <style lang="scss">
@@ -107,11 +107,15 @@ getCode()
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    width: 250px;
     height: 250px;
     padding: 30px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     background-color: rgba($color: #ecbb8d, $alpha: 0.5);
+
+    .code {
+      width: 120px;
+      margin-left:10px;
+    }
 
     .form-item {
       margin-bottom: 20px;
