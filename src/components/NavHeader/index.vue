@@ -3,15 +3,9 @@
     <n-flex justify="space-between" align="center">
       <span>我的位置：</span>
       <n-breadcrumb>
-        <n-breadcrumb-item>
-          <n-icon /> 北京总行</n-breadcrumb-item
-        >
-        <n-breadcrumb-item>
-          <n-icon /> 天津分行</n-breadcrumb-item
-        >
-        <n-breadcrumb-item>
-          <n-icon /> 平山道支行</n-breadcrumb-item
-        >
+        <n-breadcrumb-item> <n-icon /> </n-breadcrumb-item>
+        <n-breadcrumb-item> <n-icon /> </n-breadcrumb-item>
+        <n-breadcrumb-item> <n-icon /> </n-breadcrumb-item>
       </n-breadcrumb>
     </n-flex>
     <div class="operator">
@@ -42,8 +36,12 @@ import {
 } from "@vicons/ionicons5";
 import { useUserStore } from "@/store/modules/user";
 import router from "@/router";
+import { useRoute } from "vue-router";
 
 const userStore = useUserStore();
+const route = useRoute();
+
+console.log("route", route, route.meta,router);
 
 const renderIcon = (icon: Component) => {
   return () => {
